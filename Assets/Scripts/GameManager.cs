@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public void EnemySpawned()
     {
         enemies++;
-        Debug.Log("Enemies = " + enemies);
     }
 
     public void EnemyDead()
