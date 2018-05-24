@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 212282549656060422}
   - component: {fileID: 61284978318958414}
   - component: {fileID: 50825308754275120}
+  - component: {fileID: 95280268092593152}
   m_Layer: 0
   m_Name: enemyBlack
   m_TagString: Enemy
@@ -36,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815327379207488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,6 +89,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.93, y: 0.84}
   m_EdgeRadius: 0
+--- !u!95 &95280268092593152
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815327379207488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1da405071ecfa2140850a12f1df6b7b3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114450979844683490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 200
   projectile: {fileID: 1568530267287714, guid: f39dbbef83dec54419c15bb3ea57c2ac, type: 2}
-  projectileSpeed: 5
+  projectileSpeed: 10
   firerate: 1
   fireChance: 10
 --- !u!212 &212282549656060422

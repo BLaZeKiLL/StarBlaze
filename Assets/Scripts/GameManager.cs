@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour 
 {
+    public int formationSpawnCount = 3;
+
     private LevelManager leveManger;
+    private EnemySpawner enemySpawner;
     private int enemies;
+    private int spawnCount = 1;
 
 	// Use this for initialization
 	void Start () 
 	{
         leveManger = FindObjectOfType<LevelManager>();
+        enemySpawner = FindObjectOfType<EnemySpawner>();
 	}
 
     public void EnemySpawned()
@@ -24,8 +29,15 @@ public class GameManager : MonoBehaviour
 
         if (enemies <= 0)
         {
-            leveManger.LoadNextLevel();
+            if (spawnCount < formationSpawnCount)
+            {
+                enemySpawner.Respawn();
+                spawnCount++;
+            }
+            else
+                leveManger.LoadNextLevel();
         }
+
     }
 
     public void PlayerDead()

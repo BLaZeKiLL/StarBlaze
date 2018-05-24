@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
     public float padding = 2.0f;
     public float frequency = 5.0f;
 
+    public float spawnDelay = 0.5f;
+
     private float xmin = -5.0f;
     private float xmax = 5.0f;
     private float timeChange = 0.0f;
@@ -34,17 +36,50 @@ public class EnemySpawner : MonoBehaviour
             moveSpeed *= -1;
         }
 
-        foreach (Transform child in transform)
+        SpawnUntilFull();
+    }
+
+    // Update is called once per frame
+    void Update () 
+	{
+        Movement();
+    }
+
+    public void Respawn()
+    {
+        SpawnUntilFull();
+    }
+
+    private void SpawnUntilFull()
+    {
+        Transform freePostion = NextFreePosition();
+
+        if (freePostion)
         {
-            GameObject enemy = Instantiate(EnemyPrfab, child.position, Quaternion.identity) as GameObject;
-            enemy.transform.parent = child;
+            GameObject enemy = Instantiate(EnemyPrfab, freePostion.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = freePostion;
             gameManager.EnemySpawned();
         }
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
+
+        if (NextFreePosition())
+            Invoke("SpawnUntilFull", spawnDelay);
+    }
+
+    private Transform NextFreePosition()
+    {
+        foreach (Transform ChildPosition in transform)
+        {
+            // child of position is enemy and if that is 0 there is no enemy i.e enemy is dead
+            if (ChildPosition.childCount == 0)
+            {
+                return ChildPosition;
+            }
+        }
+        return null;
+    }
+
+    private void Movement()
+    {
         if (transform.position.x <= xmax && transform.position.x >= xmin)
         {
             transform.position += new UnityEngine.Vector3(moveSpeed * Time.deltaTime, 0, 0);

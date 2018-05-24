@@ -25,11 +25,11 @@ public class PlayerContoller : SpaceShip
 	{
 		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
-            transform.position += new UnityEngine.Vector3(-movemnetSpeed * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(-movemnetSpeed * Time.deltaTime, 0, 0);
 		}
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            transform.position += new UnityEngine.Vector3(movemnetSpeed * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(movemnetSpeed * Time.deltaTime, 0, 0);
         }
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, xmin, xmax), transform.position.y, transform.position.z);
