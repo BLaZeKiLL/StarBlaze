@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : SpaceShip
 {
     public float fireChance = 10.0f;
+    public int scoreValue = 100;
 
     private float firetime = 0.0f;
     private GameManager gameManager;
@@ -39,7 +40,7 @@ public class Enemy : SpaceShip
     {
         if (Health <= 0)
         {
-            gameManager.EnemyDead();
+            gameManager.EnemyDead(scoreValue);
             Destroy(gameObject);
         }
     }

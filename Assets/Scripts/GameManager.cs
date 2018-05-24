@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour 
@@ -8,14 +9,17 @@ public class GameManager : MonoBehaviour
 
     private LevelManager leveManger;
     private EnemySpawner enemySpawner;
+    private ScoreManager scoreManager;
+    private Score score;
     private int enemies;
-    private int spawnCount = 1;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
         leveManger = FindObjectOfType<LevelManager>();
         enemySpawner = FindObjectOfType<EnemySpawner>();
+        scoreManager = FindObjectOfType<ScoreManager>();
+        score = GameObject.Find("Score").GetComponent<Score>();
 	}
 
     public void EnemySpawned()
@@ -23,25 +27,20 @@ public class GameManager : MonoBehaviour
         enemies++;
     }
 
-    public void EnemyDead()
+    public void EnemyDead(int scoreValue)
     {
         enemies--;
 
+        scoreManager.gameScore = score.ScoreAdd(scoreValue);
+
         if (enemies <= 0)
         {
-            if (spawnCount < formationSpawnCount)
-            {
-                enemySpawner.Respawn();
-                spawnCount++;
-            }
-            else
-                leveManger.LoadNextLevel();
+            enemySpawner.Respawn();
         }
-
     }
 
     public void PlayerDead()
     {
-        leveManger.LoadLevel("Lose");
+        leveManger.LoadNextLevel();
     }
 }
