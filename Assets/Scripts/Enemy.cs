@@ -6,6 +6,8 @@ public class Enemy : SpaceShip
 {
     public float fireChance = 10.0f;
     public int scoreValue = 100;
+    public AudioClip fireSound;
+    public AudioClip deathSound;
 
     private float firetime = 0.0f;
     private GameManager gameManager;
@@ -33,6 +35,7 @@ public class Enemy : SpaceShip
     {
         GameObject Beam = Instantiate(projectile, transform.position, Quaternion.Euler(0f, 0f, 180f)) as GameObject;
         Beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0.0f, projectileSpeed, 0.0f);
+        AudioSource.PlayClipAtPoint(fireSound, transform.position);
         firetime = Time.time;
     }
 
@@ -41,6 +44,7 @@ public class Enemy : SpaceShip
         if (Health <= 0)
         {
             gameManager.EnemyDead(scoreValue);
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
             Destroy(gameObject);
         }
     }

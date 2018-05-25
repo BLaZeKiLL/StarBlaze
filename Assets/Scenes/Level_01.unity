@@ -157,21 +157,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114079020475041430, guid: 720926359b2fd4b4b8dce796edd0c799,
-        type: 2}
-      propertyPath: firerate
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212781951873833424, guid: 720926359b2fd4b4b8dce796edd0c799,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114079020475041430, guid: 720926359b2fd4b4b8dce796edd0c799,
-        type: 2}
-      propertyPath: Health
-      value: 200
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 720926359b2fd4b4b8dce796edd0c799, type: 2}
   m_IsPrefabParent: 0
@@ -597,6 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c25aa7f60babb4da56217a5a53b9ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameScore: 0
 --- !u!4 &810334819
 Transform:
   m_ObjectHideFlags: 0

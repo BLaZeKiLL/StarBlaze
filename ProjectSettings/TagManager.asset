@@ -42,9 +42,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 2126450637
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Laser
+    uniqueID: 2126450637
+    locked: 0
+  - name: PlayerAndEnemy
+    uniqueID: 2960792869
     locked: 0

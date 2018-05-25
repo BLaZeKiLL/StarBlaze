@@ -6,6 +6,7 @@ public class PlayerContoller : SpaceShip
 {
     public float movemnetSpeed = 10.0f;
     public float padding = 1.0f;
+    public AudioClip fireSound;
 
     private float xmin = -5.0f;
     private float xmax = 5.0f;
@@ -50,6 +51,7 @@ public class PlayerContoller : SpaceShip
     {
         GameObject Beam = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
         Beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0.0f, projectileSpeed, 0.0f);
+        AudioSource.PlayClipAtPoint(fireSound, transform.position);
     }
 
     private void PlayerDead()

@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null) // if a music player exists
+        if (instance != null && instance != this) // if a music player exists
         {
             Destroy(gameObject);
         }

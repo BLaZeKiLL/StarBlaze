@@ -9,8 +9,8 @@ public class FinaleScore : MonoBehaviour
     private Text finaleScore;
 
 	// Use this for initialization
-	void Start () 
-	{
+	void Awake()
+    {
         scoreManager = FindObjectOfType<ScoreManager>();
         finaleScore = GetComponent<Text>();
         finaleScore.text += scoreManager.gameScore.ToString();
